@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{54B0B100-0F6A-422E-B498-A98A384294A6}</ProjectGuid>
+    <RootNamespace>RTSPClient</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Live555\BasicUsageEnvironment\include;$(ProjectDir)\Live555\groupsock\include;$(ProjectDir)\Live555\UsageEnvironment\include;$(ProjectDir)\Live555\liveMedia\include;$(ProjectDir)\SDL\include;$(ProjectDir);$(IncludePath)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)SDL\Linklib;$(ProjectDir)Live555\Linklib;$(ProjectDir);$(LibraryPath);$(FrameworkSdkDir)lib;%(AdditionalDependencies)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>BasicUsageEnvironment.lib;groupsock.lib;liveMedia.lib;UsageEnvironment.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)\RTSPClient\SDL\Dll\*.dll" "$(SolutionDir)$(Configuration)\" </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(ProjectDir)\Live555\BasicUsageEnvironment\include;$(ProjectDir)\Live555\groupsock\include;$(ProjectDir)\Live555\UsageEnvironment\include;$(ProjectDir)\Live555\liveMedia\include;$(ProjectDir)\SDL\include;$(ProjectDir);$(IncludePath)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)SDL\Linklib;$(ProjectDir)Live555\Linklib;$(ProjectDir);$(LibraryPath);$(FrameworkSdkDir)lib;%(AdditionalDependencies)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>BasicUsageEnvironment.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <PreBuildEvent>
+      <Command>copy "$(SolutionDir)\RTSPClient\SDL\Dll\*.dll" "$(SolutionDir)$(Configuration)\" </Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+    <None Include="res\0001.bmp" />
+    <None Include="res\0002.bmp" />
+    <None Include="res\bitmap1.bmp" />
+    <None Include="res\catch.ico" />
+    <None Include="res\CATCH_B.ico" />
+    <None Include="res\exit.ico" />
+    <None Include="res\EXIT_B.ico" />
+    <None Include="res\icon2.ico" />
+    <None Include="res\open.ico" />
+    <None Include="res\OPEN_B.ico" />
+    <None Include="res\PAUSE.ico" />
+    <None Include="res\PAUSE_B.ico" />
+    <None Include="res\picture2.bmp" />
+    <None Include="res\picture_show.bmp" />
+    <None Include="res\RTSPClient.ico" />
+    <None Include="res\RTSPClient.rc2" />
+    <None Include="res\START.ico" />
+    <None Include="res\yx_01_副本.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CffmpegProcess.h" />
+    <ClInclude Include="DummySink.h" />
+    <ClInclude Include="ourRTSPClient.h" />
+    <ClInclude Include="QueueProcess.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="RTSPClient.h" />
+    <ClInclude Include="RTSPClientDlg.h" />
+    <ClInclude Include="RTSPSession.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StreamClientState.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CffmpegProcess.cpp" />
+    <ClCompile Include="DummySink.cpp" />
+    <ClCompile Include="ourRTSPClient.cpp" />
+    <ClCompile Include="QueueProcess.cpp" />
+    <ClCompile Include="RTSPClient.cpp" />
+    <ClCompile Include="RTSPClientDlg.cpp" />
+    <ClCompile Include="RTSPSession.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="StreamClientState.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="RTSPClient.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="RTSPClient.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
